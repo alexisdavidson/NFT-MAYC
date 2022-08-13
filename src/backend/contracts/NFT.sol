@@ -11,6 +11,7 @@ contract NFT is ERC721URIStorage, Ownable {
     string public uriSuffix = '.json';
 
     uint[] public tokenIds;
+    uint public tokenCount;
 
     function _baseURI() internal pure override returns (string memory) {
         return "ipfs://QmYPggtDG9JdiiCEfJrktquf75MKHw6DZdrF8pU1WSdSi2/";
@@ -29,7 +30,9 @@ contract NFT is ERC721URIStorage, Ownable {
 
     function mint(uint _tokenId) external payable returns(uint) {
         require(tokenIdExists(_tokenId), 'ERC721Metadata: URI query for nonexistent token');
+        require(tokenCount < tokenIds.length, 'All tokens have been minted');
 
+        tokenCount += 1;
         _safeMint(msg.sender, _tokenId);
         _setTokenURI(_tokenId, tokenURI(_tokenId));
         return(_tokenId);
