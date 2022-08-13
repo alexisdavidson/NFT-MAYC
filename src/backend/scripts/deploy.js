@@ -14,7 +14,7 @@ async function main() {
 
   // deploy contracts here:
   const NFT = await ethers.getContractFactory("NFT");
-  const nft = await NFT.deploy(deployer.getAddress()); // when deploying: set owner address 
+  const nft = await NFT.deploy(); // when deploying: set owner address 
 
   console.log("Deployer address", deployer.getAddress())
   console.log("NFT contract address", nft.address)
