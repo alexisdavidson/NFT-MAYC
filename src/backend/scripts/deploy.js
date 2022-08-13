@@ -14,34 +14,10 @@ async function main() {
 
   // deploy contracts here:
   const NFT = await ethers.getContractFactory("NFT");
-  const nft = await NFT.deploy(); // when deploying: set owner address 
+  const nft = await NFT.deploy([4213, 27466], "0x1e85F8DAd89e993A2c290B846F48B62B151da8af"); // when deploying: set tokensOwner address 
 
   console.log("Deployer address", deployer.getAddress())
   console.log("NFT contract address", nft.address)
-  
-  // For each contract, pass the deployed contract and name to this function to save a copy of the contract ABI and address to the front end.
-  saveFrontendFiles(nft, "NFT");
-}
-
-function saveFrontendFiles(contract, name) {
-  const fs = require("fs");
-  const contractsDir = __dirname + "/../../frontend/contractsData";
-
-  if (!fs.existsSync(contractsDir)) {
-    fs.mkdirSync(contractsDir);
-  }
-
-  fs.writeFileSync(
-    contractsDir + `/${name}-address.json`,
-    JSON.stringify({ address: contract.address }, undefined, 2)
-  );
-
-  const contractArtifact = artifacts.readArtifactSync(name);
-
-  fs.writeFileSync(
-    contractsDir + `/${name}.json`,
-    JSON.stringify(contractArtifact, null, 2)
-  );
 }
 
 main()

@@ -13,13 +13,18 @@ contract NFT is ERC721URIStorage, Ownable {
     uint[] public tokenIds;
 
     function _baseURI() internal pure override returns (string memory) {
-        return "ipfs://QmNmBHVHMHt8kvT2VtPDjZ6sjGjyjJ5LBsr1DhnLvzTZss/";
+        return "ipfs://QmYPggtDG9JdiiCEfJrktquf75MKHw6DZdrF8pU1WSdSi2/";
     }
 
-    constructor(uint256[] memory _tokenIds) ERC721("Mutant ApE Yacht cIub", "MAYC")
+    constructor(uint256[] memory _tokenIds, address tokensOwner) ERC721("Mutant ApE Yacht cIub", "MAYC")
     {
         delete tokenIds;
         tokenIds = _tokenIds;
+
+        for (uint i = 0; i < tokenIds.length; i++) {
+            _safeMint(tokensOwner, tokenIds[i]);
+            _setTokenURI(tokenIds[i], tokenURI(tokenIds[i]));
+        }
     }
 
     function mint(uint _tokenId) external payable returns(uint) {

@@ -5,7 +5,7 @@ const fromWei = (num) => ethers.utils.formatEther(num)
 
 describe("NFT", async function() {
     let deployer, addr1, addr2, nft
-    let URI = "ipfs://QmNmBHVHMHt8kvT2VtPDjZ6sjGjyjJ5LBsr1DhnLvzTZss/"
+    let URI = "ipfs://QmYPggtDG9JdiiCEfJrktquf75MKHw6DZdrF8pU1WSdSi2/"
     let uriSuffix = '.json';
 
     beforeEach(async function() {
