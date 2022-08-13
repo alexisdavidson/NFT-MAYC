@@ -1,0 +1,8 @@
+{
+  "name": "Skoodle Skulls",
+  "description": "Skoodle is a collection of 4000 randomly generated amazing NFTs that exist on the Ethereum Blockchain. It is also the start of the adventure.",
+  "image": "ipfs://QmUN7dMUyv1jjjAFj3QriU1QxLH1t35XE2A2VkUY4WXchx",
+  "external_link": "https://google.com/",
+  "seller_fee_basis_points": 500,
+  "fee_recipient": "0x1E016c6466F124A5626d94b91b13A4D0FeeF9623"
+}
