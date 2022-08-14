@@ -19,6 +19,10 @@ module.exports = {
      matic: {
        url: process.env.REACT_APP_API_URL_MATIC,
        accounts: [process.env.REACT_APP_PRIVATE_KEY_MATIC]
+     },
+     mainnet: {
+       url: process.env.REACT_APP_API_URL_MAINNET,
+       accounts: [process.env.REACT_APP_PRIVATE_KEY_MAINNET]
      }
   },
   paths: {
